@@ -1,4 +1,4 @@
-let entrada_usuario;
+let entrada_usuario = "";
 console.log("Você toca algum instrumento?");
 process.stdin.on("data", function (data){
     let input = data.toString().trim().toLowerCase();
@@ -11,7 +11,7 @@ process.stdin.on("data", function (data){
             process.exit();
         } else {
             console.log("Opção não válida, digite novamente:");
-            entrada_usuario;
+            entrada_usuario = "";
         }
     }
 })
