@@ -22,6 +22,14 @@ process.stdin.on("data", function (data){
                 if(instrumentoUsuario == instrumento[i].nome){
                     console.log(instrumento[i].frase);
                     process.exit();
+                }else{
+                    instrumento.push({nome: instrumentoUsuario, frase: ''});
+                    console.log("Instrumento não encontrado! Porém adicionamos ele na nossa lista, que frase gostaria que aparecesse caso digitasse este instrumento?")
+                    for(let c = 0; c < instrumento.length;c++){
+                        if(instrumentoUsuario == instrumento[i].nome){
+                            instrumento[i].frase = input;
+                        }
+                    }
                 }
             }
         }
