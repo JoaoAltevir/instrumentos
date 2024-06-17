@@ -18,19 +18,18 @@ process.stdin.on("data", function (data){
                 console.log("Opção não válida, digite novamente:");
                 entrada_usuario = "";
             }
-        } else {
-            if(!instrumentoUsuario){
-                instrumentoUsuario = input;
-                for(let i = 0; i < instrumento.length;i++){
-                    if(instrumentoUsuario == instrumento[i].nome){
-                        console.log(instrumento[i].frase);
-                    }else{
-                        instrumento.push({nome: instrumentoUsuario, frase: ''});
-                        instrumentoNovo = true;
-                        console.log("Instrumento não encontrado! Porém adicionamos ele na nossa lista, que frase gostaria que aparecesse caso digitasse este instrumento?")
-                    }
+        } else {           
+            instrumentoUsuario = input;
+            for(let i = 0; i < instrumento.length;i++){
+                if(instrumentoUsuario == instrumento[i].nome){
+                    console.log(instrumento[i].frase);
+                }else{
+                    instrumento.push({nome: instrumentoUsuario, frase: ''});
+                    instrumentoNovo = true;
+                    console.log("Instrumento não encontrado! Porém adicionamos ele na nossa lista, que frase gostaria que aparecesse caso digitasse este instrumento?")
                 }
             }
+            
         }
     } else {
         for(let i = 0; i < instrumento.length;i++){
