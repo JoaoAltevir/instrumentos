@@ -31,6 +31,8 @@ process.stdin.on("data", function (data){
                 console.log("Instrumento não encontrado! Porém adicionamos ele na nossa lista, que frase gostaria que aparecesse caso digitasse este instrumento?")    
             }else{
                 console.log(instrumentoEncontrado.frase)
+                console.log(mensagemInicial);
+                instrumentoEncontrado = "";
             }
             
         }
@@ -46,3 +48,4 @@ process.stdin.on("data", function (data){
         }
     }
 })
+//TODO o código funciona porém não totalmente, você consegue adicionar até 2 instrumentos sem problema, após isso o código pifa
