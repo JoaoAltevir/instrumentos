@@ -1,12 +1,12 @@
 let entrada_usuario = "";
 let instrumento = [{nome: 'violao', frase: 'modão e bar, combinação perfeita!'},];
 let instrumentoUsuario = "";
-let instrumentoNovo = false;
+let instrumentoNovo;
 let mensagemInicial = "Você toca algum instrumento?"
 console.log(mensagemInicial);
 process.stdin.on("data", function (data){
     let input = data.toString().trim().toLowerCase();
-    if(instrumentoNovo == false){
+    if(!instrumentoNovo){
         if(!entrada_usuario){
             entrada_usuario = input;
             if(entrada_usuario == "s" || entrada_usuario == "sim"){
@@ -20,14 +20,17 @@ process.stdin.on("data", function (data){
             }
         } else {           
             instrumentoUsuario = input;
+            let instrumentoEncontrado;
             for(let i = 0; i < instrumento.length;i++){
-                if(instrumentoUsuario == instrumento[i].nome){
-                    console.log(instrumento[i].frase);
-                }else{
-                    instrumento.push({nome: instrumentoUsuario, frase: ''});
-                    instrumentoNovo = true;
-                    console.log("Instrumento não encontrado! Porém adicionamos ele na nossa lista, que frase gostaria que aparecesse caso digitasse este instrumento?")
-                }
+                if(instrumentoUsuario == instrumento[i].nome)
+                    instrumentoEncontrado = instrumento[i]
+            }
+            if(!instrumentoEncontrado){
+                instrumento.push({nome: instrumentoUsuario, frase: ''});
+                instrumentoNovo = true;
+                console.log("Instrumento não encontrado! Porém adicionamos ele na nossa lista, que frase gostaria que aparecesse caso digitasse este instrumento?")    
+            }else{
+                console.log(instrumentoEncontrado.frase)
             }
             
         }
